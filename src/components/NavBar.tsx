@@ -16,7 +16,7 @@ function NavBar() {
       </div>
       <div className="grow-[2] shrink-0 border border-yellow-600">
         <ul className="flex justify-between">
-          <li>Squadra</li>
+          <li><a href="#team">Squadra</a></li>
           <li>Storia</li>
           <li>Community</li>
           <li>Calendar</li>
