@@ -1,19 +1,19 @@
 import logo from '../assets/logo.jpg';
 import querc from '../assets/querc.png';
-import MatchBox from './MatchBox';
+import MatchBox, { MatchBoxSize } from './MatchBox';
 
 interface IProps {
   oponent: string;
-  isShrunk: boolean;
+  size: MatchBoxSize;
 }
 
 function MatchesCarousel(props: IProps) {
-  const { oponent, isShrunk } = props;
+  const { oponent, size } = props;
 
   return (
-    <div className={`justify-between ${isShrunk ? 'hidden' : 'flex'} duration-1000`}>
-      <MatchBox oponent={oponent} isShrunk={isShrunk} />
-      <MatchBox oponent={oponent} isShrunk={isShrunk}  />
+    <div className={`flex justify-between`}>
+      <MatchBox oponent={oponent} size={size} />
+      <MatchBox oponent={oponent} size={size}  />
     </div>
   );
 };

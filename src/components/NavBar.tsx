@@ -12,7 +12,6 @@ function NavBar() {
 
   return (
     <>
-
       <div className={`fixed bg-red-600 flex flex-col justify-center items-center ${isShrunk ? 'h-[60px]' : 'h-[120px]'} top-0 w-full duration-1000 text-white`}>
         <nav className={`flex justify-center items-center w-[1280px]`}>
           <div className={`flex w-72 items-center flex-initial ${isShrunk ? 'h-14' : 'h-[110px]'} duration-1000`}>
@@ -32,16 +31,13 @@ function NavBar() {
           </div>
           <div className="w-72">
             {isShrunk
-              ? <MatchBox oponent="" isShrunk={isShrunk} />
+              ? <MatchBox oponent="" size='S' />
               : ''
             }
           </div>
         </nav>
-        <div className={`top-[120px] fixed w-full bg-white justify-center ${isShrunk ? 'hidden' : 'flex'} duration-1000`}>
-          {isShrunk
-            ? ''
-            : <div className="w-[1280px]"><MatchesCarousel oponent="" isShrunk={isShrunk} /></div>
-          }
+        <div className={`top-[120px] fixed w-full bg-white justify-center ${isShrunk ? 'hidden' : 'flex'}`}>
+          <div className="w-[1280px]"><MatchesCarousel oponent="" size='M' /></div>
         </div>
       </div>
     </>
