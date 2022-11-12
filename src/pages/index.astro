@@ -2,11 +2,17 @@
 import Layout from "../layout/Layout.astro";
 import NavBar from "../components/NavBar";
 import Team from "../components/Team";
+import Table from "../components/Table";
+import Welcome from "../components/Welcome";
 ---
 
 <Layout title="Dale Dale Montanina">
-	<main class="flex justify-center h-[100vh]">
+	<header class="flex justify-center">
 		<NavBar client:load></NavBar>	
+	</header>
+	<main class="flex justify-center flex-col">
+		<Welcome></Welcome>
+		<Team></Team>
+		<Table></Table>
 	</main>
-	<Team></Team>
 </Layout>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useScrollPosition } from "../hooks/useScrollPosition";
+import { useEffect, useState } from "react";
 import logo from '../assets/logo.jpg';
-import LeagueTable from "./LeagueTable";
+import { useScrollPosition } from "../hooks/useScrollPosition";
+import MatchBox from "./MatchBox";
 import MatchesCarousel from "./MatchesCarousel";
 
 function NavBar() {
@@ -13,30 +13,36 @@ function NavBar() {
   return (
     <>
 
-      <div className={`fixed bg-red-600 flex justify-center items-center ${isShrunk ? 'h-[50px] top-6' : 'h-[120px] top-0'} w-full duration-1000`}>
+      <div className={`fixed bg-red-600 flex flex-col justify-center items-center ${isShrunk ? 'h-[60px]' : 'h-[120px]'} top-0 w-full duration-1000 text-white`}>
         <nav className={`flex justify-center items-center w-[1280px]`}>
-          <div className="flex items-center flex-initial h-24">
+          <div className={`flex w-72 items-center flex-initial ${isShrunk ? 'h-14' : 'h-[110px]'} duration-1000`}>
             <img src={logo} className="h-full"></img>
-            ASD Polisportiva Montanina
+            <span className="text-center p-2 text-xl">
+              ASD Polisportiva <br /> Montanina
+            </span>
           </div>
-          <div className="grow-[2] shrink-0">
+          <div className="grow-[2] shrink-0 p-4">
             <ul className="flex justify-between">
               <li><a href="#team">Squadra</a></li>
               <li>Storia</li>
               <li>Community</li>
               <li>Calendar</li>
+              <li><a href="#table">Classifica</a></li>
             </ul>
           </div>
-          <div className="grow-[1] shrink-0">
-            Next Match
+          <div className="w-72">
+            {isShrunk
+              ? <MatchBox oponent="" isShrunk={isShrunk} />
+              : ''
+            }
           </div>
         </nav>
-      </div>
-      <div>
-        {isShrunk
-          ? <LeagueTable />
-          : <MatchesCarousel />
-        }
+        <div className={`top-[120px] fixed w-full bg-white justify-center ${isShrunk ? 'hidden' : 'flex'} duration-1000`}>
+          {isShrunk
+            ? ''
+            : <div className="w-[1280px]"><MatchesCarousel oponent="" isShrunk={isShrunk} /></div>
+          }
+        </div>
       </div>
     </>
   );
